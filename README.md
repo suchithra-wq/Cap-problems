@@ -1,1 +1,28 @@
-# Cap-problems
+# Cap-problem
+class Solution:
+    def findSubString(self, str):
+        l=str
+        n=len(l)
+        m=set(l)
+        a=len(m)
+        s={}
+        i=0
+        j=0
+        k=0
+        sol=10**9
+        while i<n and j<n:
+            if l[i] not in s.keys():
+                s[l[i]]=1
+                k+=1
+            else:
+                s[l[i]]+=1
+            i+=1
+            while s[l[j]]>1:
+                s[l[j]]-=1
+                j+=1
+            if k==a:
+                sol=min(sol,i-j)
+                
+        return sol
+        
+        
